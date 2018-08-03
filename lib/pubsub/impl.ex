@@ -1,9 +1,8 @@
 defmodule Pubsub.Impl do
 
-  def register(from, topics, topic, args) do
+  def subscribe(from, topics, topic, args) do
     subscription =  %Pubsub.Subscriber{ pid: from, subscriber_args: args }
     Map.update(topics, topic, [ subscription ], &[ subscription | &1 ])
-    |> IO.inspect
   end
 
   def trigger(topics, topic, extra_args) do

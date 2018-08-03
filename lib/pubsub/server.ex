@@ -10,8 +10,8 @@ defmodule Pubsub.Server do
     { :ok, %{} }
   end
 
-  def handle_call({ :register, topic, args }, { from, _ref }, topics) do
-    state = Impl.register(from, topics, topic, args)
+  def handle_call({ :subscribe, topic, args }, { from, _ref }, topics) do
+    state = Impl.subscribe(from, topics, topic, args)
     Process.monitor(from)
     { :reply, :ok, state }
   end
@@ -22,7 +22,6 @@ defmodule Pubsub.Server do
   end
 
   def handle_info({ :DOWN, _ref, :process, pid, _reason }, topics) do
-    IO.inspect DOWN: pid
     { :noreply, Impl.remove_subscriber(topics, pid) }
   end
 

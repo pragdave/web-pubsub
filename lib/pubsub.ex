@@ -5,8 +5,8 @@ defmodule Pubsub do
   def name, do: @me
 
 
-  def register(topic, args) do
-    GenServer.call(@me, { :register, topic, args })
+  def subscribe(topic, args) do
+    GenServer.call(@me, { :subscribe, topic, args })
   end
 
   def trigger(topic, extra_args) do
