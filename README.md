@@ -4,7 +4,7 @@ Trivial pubsub library for the webo monitoring framework.
 
 # Legal
 
-Copyright © 2028 David Thomas (dave@pragdave.me)
+Copyright © 2018 David Thomas (dave@pragdave.me)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
